@@ -2,27 +2,24 @@
 
 ## Demo
 
-[Cartoon Cats API](https://alchemy-cartoon-cats.herokuapp.com/)
+[Cartoon Cats with Models](https://alchemy-cartoon-cats-models.herokuapp.com/)
 
 ## Getting Started
 
-Use [this template](https://github.com/alchemycodelab/backend-half-baked-cartoon-cats) to get started.
+Use your deliverable from Tuesday as a template (make a NEW repo using the old repo as a template by changing the setting in your repo).
 
 ### Learning Objectives
 
-- Create a GET endpoint using Express that returns an array of objects
-- Create a GET endpoint using Express that returns a single object based on the id and `req.params.id`
-- Test Express controller routes expectations using Jest and Supertest
-- Explain how Express tries routes, in what order, and when it will stop or continue
-- Deploy an Express application on Heroku
+    Connect an Express app to a Postgres database and return data from that database as JSON
+    Move controller logic involving data into a Model
+    Create a Model class to manage database operations using Javascript
+    Deploy a Postgres powered Express app using Heroku by adding a Postgres add-on
 
 ### Description
 
-Welcome to your first Express app! We're going to be building out two different endpoints that returns information about cartoon cats listed in the `data/cats.js` file. For today's deliverable, you will be focused on the `controllers` section of the `lib` folder.
+We’re moving beyond hard-coded data! You’re going to deploy your first app powered by a Postgres database. This is the same data as you used in the previous Cartoon Cats deliverable, except now you will be retrieving that data from your database. You should refactor your old code to use a CartoonCat model rather than importing the data directly from a file.
 
-Your tests have been provided for you -- before you start, read through the tests to understand what is expected to be returned from your endpoints.
-
-The only code you need to add in this deliverable is in `controllers/cats.js` -- take a look at line 10 in `lib/app.js` to see how the controllers are connected via namespaces to the application.
+You will need to write SQL to seed your database – this should be placed in lib/sql/setup.sql – be sure to seed your database using npm run setup-db. You also need to remember to seed your data on production using npm run setup-heroku
 
 ### Acceptance Criteria
 
@@ -34,5 +31,8 @@ The only code you need to add in this deliverable is in `controllers/cats.js` --
 | Task                                               | Points |
 | -------------------------------------------------- | ------ |
 | Deployed on Heroku                                 | 2      |
+| CartoonCat model has getById function that returns a Cat with a specific id | 4      |
+| CartoonCat model has getAll function that returns all cats | 4      |
+| Controllers use the CartoonCat model to retrieve data | 2      |
 | `/cats/` route returns list of cats' names and ids | 4      |
 | `/cats/:id` route returns detailed cat information | 4      |
